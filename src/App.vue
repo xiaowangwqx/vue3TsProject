@@ -2,8 +2,10 @@
   <h1>你好</h1>
   <div class="box">123465</div>
 </template>
-<script>
-import vue from 'vue';
+<script setup lang="ts">
+for (var i=0;i<10;i++){
+  console.log(i,"i")
+}
 </script>
 <style scoped lang="scss">
 .box {
