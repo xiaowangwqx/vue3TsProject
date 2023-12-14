@@ -1,10 +1,12 @@
 # eslint语法校验
+
 **通过pnpm run lint/npm run lint去检测语法，如果出现不规范格式,通过pnpm run fix/npm run fix 修改**
 
 # 格式化代码
-**当我们运行`pnpm run format/npm run fotmat`的时候，会把代码直接格式化**
+代码格式化:`pnpm run format/npm run fotmat`
 
 # commit 提交规范
+
 commit 提交信息时，就不能再随意写了，必须是 git commit -m 'fix: xxx' 符合类型的才可以
 **需要注意的是类型的后面需要用英文的 :，并且冒号后面是需要空一格的，这个是不能省略的**
 'feat',//新特性、新功能
