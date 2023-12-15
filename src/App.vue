@@ -1,7 +1,12 @@
 <template>
   <div>
-    <div>测试svg</div>
-    <svg-icon width="50px" height="50px" name="lock" color="backpink"></svg-icon>
+    <div class="box">测试svg</div>
+    <svg-icon
+      width="50px"
+      height="50px"
+      name="lock"
+      color="backpink"
+    ></svg-icon>
   </div>
 </template>
 
@@ -10,6 +15,5 @@
 .box {
   width: 100px;
   height: 100px;
-  background: pink;
 }
 </style>
