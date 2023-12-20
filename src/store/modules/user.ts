@@ -2,15 +2,15 @@
 import { defineStore } from 'pinia';
 // 引入登录接口
 import { reqLogin } from '@/api/user/index';
-import {setToken,getToken} from '@/utils/storage'
+import { setToken, getToken } from '@/utils/storage';
 // 引入数据类型
-import { loginForm,loginResponseData } from '@/api/user/type';
-import {UserState} from './types/type'
+import { loginForm, loginResponseData } from '@/api/user/type';
+import { UserState } from './types/type';
 
 // 创建用户小仓库
 let useUserStore = defineStore('User', {
   // 存储数据
-  state: ():UserState => {
+  state: (): UserState => {
     return {
       token: getToken(),
     };
@@ -19,19 +19,19 @@ let useUserStore = defineStore('User', {
   actions: {
     // 用户登录的方法
     async userLogin(data: loginForm) {
-      let res:loginResponseData = await reqLogin(data);
+      let res: loginResponseData = await reqLogin(data);
       console.log(res, '登录');
       //   登录成功 存储token
       if (res.code == 200) {
-        this.token=(res.data.token as string);
+        this.token = res.data.token as string;
         // 数据持久化 存储到本地存储中
-        setToken((res.data.token as string))
-        console.log(this.token,'this.token')
+        setToken(res.data.token as string);
+        console.log(this.token, 'this.token');
         // 保证当前async 返回成功的promise
         return 'ok';
-      }else{
-      // 登录失败 展示登录失败的错误信息
-      return Promise.reject(new Error(res.data.message));
+      } else {
+        // 登录失败 展示登录失败的错误信息
+        return Promise.reject(new Error(res.data.message));
       }
     },
   },

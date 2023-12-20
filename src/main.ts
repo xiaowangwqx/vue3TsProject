@@ -1,6 +1,8 @@
 import { createApp } from 'vue';
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
+//引入模板的全局的样式
+import '@/styles/index.scss'
 //@ts-ignore
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
 // import App from './App.vue';

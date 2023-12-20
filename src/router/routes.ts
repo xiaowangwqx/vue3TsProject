@@ -9,8 +9,8 @@ export const constantRoue = [
   // 登录后展示数据
   {
     path: '/',
-    component: () => import('@/views/home/index.vue'),
-    name: 'home',
+    component: () => import('@/views/layout/index.vue'),
+    name: 'layout',
   },
   // 404
   {
