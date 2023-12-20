@@ -11,10 +11,10 @@ enum API {
 // 对外暴露请求函数
 // 登录接口
 export const reqLogin = (data: loginForm) => {
-  request.post<any, loginResponseData>(API.LOGIN_URL, data);
+ return request.post<any, loginResponseData>(API.LOGIN_URL, data);
 };
 
 // 获取用户信息
 export const reqUserInfo = () => {
-  request.post<any, userResponseData>(API.USERINFO_URL);
+ return request.post<any, userResponseData>(API.USERINFO_URL);
 };
