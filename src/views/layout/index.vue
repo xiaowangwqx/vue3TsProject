@@ -2,10 +2,18 @@
   <div class="layout-container">
     <!-- 左侧菜单 -->
     <div class="layout-slider">
-      <logo></logo>
+      <Logo></Logo>
+      <!-- 展示菜单 -->
+      <!-- 滚动组件 -->
+      <el-scrollbar class="scorllbar">
+        <!-- 菜单组件 -->
+        <el-menu background-color="#001529" text-color="#fff">
+          <Menu :menuList="userStore.menuRoutes"></Menu>
+        </el-menu>
+      </el-scrollbar>
     </div>
     <!-- 顶部面包屑导航 -->
-    <div class="layput-tabbar">456</div>
+    <div class="layout-tabbar">456</div>
     <!-- 内容展示区域 -->
     <div class="layout-main">789</div>
   </div>
@@ -13,7 +21,13 @@
 
 <script setup lang="ts">
 // 引入logo子组件
-import logo from './logo/index.vue';
+import Logo from './logo/index.vue';
+import Menu from './menu/index.vue';
+import useUserStore from '@/store/modules/user';
+
+let userStore = useUserStore();
+
+
 </script>
 
 <style scoped lang="scss">
@@ -21,12 +35,24 @@ import logo from './logo/index.vue';
   width: 100%;
   height: 100vh;
 }
+
 .layout-slider {
   width: $base-menu-with;
   height: 100vh;
   background: $base-menu-background;
+  color: #fff;
+
+  .scorllbar {
+    width: 100%;
+    height: calc(100vh - $base-menu-logo-height);
+
+    .el-menu {
+      border-right: none;
+    }
+  }
 }
-.layput-tabbar {
+
+.layout-tabbar {
   position: fixed;
   top: 0;
   left: $base-menu-with;
@@ -34,6 +60,7 @@ import logo from './logo/index.vue';
   height: $base-tabbar-height;
   background: skyblue;
 }
+
 .layout-main {
   position: absolute;
   left: $base-menu-with;

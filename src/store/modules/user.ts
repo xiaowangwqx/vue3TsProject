@@ -6,6 +6,8 @@ import { setToken, getToken } from '@/utils/storage';
 // 引入数据类型
 import { loginForm, loginResponseData } from '@/api/user/type';
 import { UserState } from './types/type';
+// 引入常量路由
+import { constantRoue } from '@/router/routes';
 
 // 创建用户小仓库
 let useUserStore = defineStore('User', {
@@ -13,6 +15,7 @@ let useUserStore = defineStore('User', {
   state: (): UserState => {
     return {
       token: getToken(),
+      menuRoutes: constantRoue, //仓库存储生成菜单需要的数组
     };
   },
   // 处理异步
