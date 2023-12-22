@@ -15,7 +15,9 @@
     <!-- 顶部面包屑导航 -->
     <div class="layout-tabbar">456</div>
     <!-- 内容展示区域 -->
-    <div class="layout-main">789</div>
+    <div class="layout-main">
+      <Main></Main>
+    </div>
   </div>
 </template>
 
@@ -24,10 +26,9 @@
 import Logo from './logo/index.vue';
 import Menu from './menu/index.vue';
 import useUserStore from '@/store/modules/user';
+import Main from './main/index.vue'
 
 let userStore = useUserStore();
-
-
 </script>
 
 <style scoped lang="scss">
