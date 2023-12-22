@@ -7,13 +7,15 @@
       <!-- 滚动组件 -->
       <el-scrollbar class="scorllbar">
         <!-- 菜单组件 -->
-        <el-menu background-color="#001529" text-color="#fff">
+        <el-menu background-color="#001529" text-color="#fff" :default-active="$route.path" >
           <Menu :menuList="userStore.menuRoutes"></Menu>
         </el-menu>
       </el-scrollbar>
     </div>
     <!-- 顶部面包屑导航 -->
-    <div class="layout-tabbar">456</div>
+    <div class="layout-tabbar">
+      <Tabbar></Tabbar>
+    </div>
     <!-- 内容展示区域 -->
     <div class="layout-main">
       <Main></Main>
@@ -22,12 +24,16 @@
 </template>
 
 <script setup lang="ts">
+import {useRoute} from 'vue-router';
+
 // 引入logo子组件
 import Logo from './logo/index.vue';
 import Menu from './menu/index.vue';
 import useUserStore from '@/store/modules/user';
-import Main from './main/index.vue'
+import Main from './main/index.vue';
+import Tabbar from './tabbar/index.vue'
 
+let $route=useRoute();
 let userStore = useUserStore();
 </script>
 
@@ -59,7 +65,6 @@ let userStore = useUserStore();
   left: $base-menu-with;
   width: calc(100% - $base-menu-with);
   height: $base-tabbar-height;
-  background: skyblue;
 }
 
 .layout-main {
