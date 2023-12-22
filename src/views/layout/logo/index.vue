@@ -8,6 +8,11 @@
 <script setup lang="ts">
 import setting from '@/setting';
 </script>
+<script lang="ts">
+export default {
+  name:'Logo'
+}
+</script>
 <style scoped lang="scss">
 .logo {
   width: 100%;
@@ -16,7 +21,7 @@ import setting from '@/setting';
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   p {
     font-size: $base-menu-logo-fontSize;
     margin-left: 10px;

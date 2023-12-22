@@ -13,7 +13,11 @@
     </template>
     <!-- 有子路由 但只有一个 -->
     <template v-if="item.children && item.children.length == 1">
-      <el-menu-item :index="item.children[0].path" v-if="!item.children[0].meta.hidden" @click="goRote">
+      <el-menu-item
+        :index="item.children[0].path"
+        v-if="!item.children[0].meta.hidden"
+        @click="goRote"
+      >
         <el-icon>
           <component :is="item.children[0].meta.icon"></component>
         </el-icon>
