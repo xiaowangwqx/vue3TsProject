@@ -3,8 +3,13 @@
     <component :is="layoutStore.fold ? 'Fold' : 'Expand'"></component>
   </el-icon>
   <el-breadcrumb separator-icon="ArrowRight">
-  <!-- 面包屑动态展示路由 -->
-    <el-breadcrumb-item v-for="(item,index) in $route.matched" :key="index" v-show="item.meta.title" :to="item.path" >
+    <!-- 面包屑动态展示路由 -->
+    <el-breadcrumb-item
+      v-for="(item, index) in $route.matched"
+      :key="index"
+      v-show="item.meta.title"
+      :to="item.path"
+    >
       <el-icon>
         <component :is="item.meta.icon"></component>
       </el-icon>
