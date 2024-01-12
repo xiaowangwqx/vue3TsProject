@@ -1,27 +1,31 @@
 <template>
   <el-icon style="margin-right: 10px" @click="changeIcon">
-    <component :is="layoutStore.fold?'Fold':'Expand'"></component>
+    <component :is="layoutStore.fold ? 'Fold' : 'Expand'"></component>
   </el-icon>
   <el-breadcrumb separator-icon="ArrowRight">
-    <el-breadcrumb-item :to="{ path: '/' }">权限管理</el-breadcrumb-item>
-    <el-breadcrumb-item><a href="/">用户管理</a></el-breadcrumb-item>
+  <!-- 面包屑动态展示路由 -->
+    <el-breadcrumb-item v-for="(item,index) in $route.matched" :key="index" v-show="item.meta.title" :to="item.path" >
+      <el-icon>
+        <component :is="item.meta.icon"></component>
+      </el-icon>
+      {{ item.meta.title }}
+    </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
 <script setup lang="ts">
 import useLayoutSettingStore from '@/store/modules/setting';
-import { ref } from 'vue'
 
 let layoutStore = useLayoutSettingStore();
 
 const changeIcon = () => {
   layoutStore.fold = !layoutStore.fold;
-}
+};
 </script>
 <script lang="ts">
 export default {
-  name: 'Breadcrumb'
-}
+  name: 'Breadcrumb',
+};
 </script>
 
 <style scoped></style>

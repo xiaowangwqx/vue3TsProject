@@ -10,8 +10,8 @@
 <script setup lang="ts"></script>
 <script lang="ts">
 export default {
-  name: 'Main'
-}
+  name: 'Main',
+};
 </script>
 
 <style scoped lang="scss">
