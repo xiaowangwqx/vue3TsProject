@@ -13,8 +13,8 @@ let request = axios.create({
 // 2、给axios 实例 添加请求拦截器
 request.interceptors.request.use((config) => {
   let userStore = useUserStore();
-  if(userStore.token){
-    config.headers.token=userStore.token;
+  if (userStore.token) {
+    config.headers.token = userStore.token;
   }
   // config配置对象  headers：请求头 经常给服务器携带公共参数
   // 返回配置对象

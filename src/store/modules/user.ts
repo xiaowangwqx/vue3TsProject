@@ -2,7 +2,7 @@
 import { defineStore } from 'pinia';
 // 引入登录接口
 import { reqLogin, reqUserInfo } from '@/api/user/index';
-import { setToken, getToken } from '@/utils/storage';
+import { setToken, getToken,removeToken } from '@/utils/storage';
 // 引入数据类型
 import { loginForm, loginResponseData } from '@/api/user/type';
 import { UserState } from './types/type';
@@ -16,8 +16,8 @@ let useUserStore = defineStore('User', {
     return {
       token: getToken(),
       menuRoutes: constantRoue, //仓库存储生成菜单需要的数组
-      username:'',
-      avatar:'', 
+      username: '',
+      avatar: '',
     };
   },
   // 处理异步
@@ -43,15 +43,21 @@ let useUserStore = defineStore('User', {
     async userInfo() {
       // 获取用户信息 存储当前用户信息
       let res = await reqUserInfo();
-      console.log(res,'userInfo');
-      if(res.code==200){
+      console.log(res, 'userInfo');
+      if (res.code == 200) {
         // 存储用户信息
-        this.username=res.data.checkUser.username;
-        this.avatar=res.data.checkUser.avatar;
-      }else{
-        
+        this.username = res.data.checkUser.username;
+        this.avatar = res.data.checkUser.avatar;
+      } else {
       }
     },
+    // 退出登录
+   async userLogout(){
+    this.token='';
+    this.username='';
+    this.avatar='';
+    removeToken('TOKEN');
+   }
   },
   // 计算属性
   getters: {},
