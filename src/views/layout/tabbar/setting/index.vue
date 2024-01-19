@@ -33,12 +33,12 @@
 import useLayoutSettingStore from '@/store/modules/setting';
 // 获取user小仓库
 import useUserStore from '@/store/modules/user';
-import { useRouter,useRoute } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router';
 
 let userStore = useUserStore();
 let layoutSettingStore = useLayoutSettingStore();
-let $router=useRouter();
-let $route=useRoute();
+let $router = useRouter();
+let $route = useRoute();
 
 // 刷新按钮点击回调
 const updateRefresh = () => {
@@ -57,11 +57,11 @@ const fullScreen = () => {
 };
 
 // 退出登录
-const logout=()=>{
-  console.log('退出登录')
+const logout = () => {
+  console.log('退出登录');
   userStore.userLogout();
-  $router.push({path:'/login',query:{redirct:$route.path}})
-}
+  $router.push({ path: '/login', query: { redirct: $route.path } });
+};
 </script>
 <script lang="ts">
 export default {

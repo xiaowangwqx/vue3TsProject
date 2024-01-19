@@ -2,7 +2,7 @@
 import { defineStore } from 'pinia';
 // 引入登录接口
 import { reqLogin, reqUserInfo } from '@/api/user/index';
-import { setToken, getToken,removeToken } from '@/utils/storage';
+import { setToken, getToken, removeToken } from '@/utils/storage';
 // 引入数据类型
 import { loginForm, loginResponseData } from '@/api/user/type';
 import { UserState } from './types/type';
@@ -52,12 +52,12 @@ let useUserStore = defineStore('User', {
       }
     },
     // 退出登录
-   async userLogout(){
-    this.token='';
-    this.username='';
-    this.avatar='';
-    removeToken('TOKEN');
-   }
+    async userLogout() {
+      this.token = '';
+      this.username = '';
+      this.avatar = '';
+      removeToken('TOKEN');
+    },
   },
   // 计算属性
   getters: {},

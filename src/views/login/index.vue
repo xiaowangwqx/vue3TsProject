@@ -45,7 +45,7 @@
 <script setup lang="ts">
 import { User, Lock } from '@element-plus/icons-vue';
 import { reactive, ref } from 'vue';
-import { useRouter,useRoute } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { ElNotification } from 'element-plus';
 import { getTime } from '@/utils/time';
 
@@ -56,7 +56,7 @@ import { pa } from 'element-plus/es/locale';
 let userStore = useUserStore();
 // 获取路由器
 let $router = useRouter();
-let $route=useRoute();
+let $route = useRoute();
 
 // 收集登录 账号密码
 let loginForm = reactive({ username: 'admin', password: '111111' });
@@ -101,8 +101,8 @@ const login = async () => {
   try {
     await userStore.userLogin(loginForm);
     // 请求成功 跳转到首页
-    let redirct:any=$route?.query?.redirct;
-    $router.push({path:redirct||'/'});
+    let redirct: any = $route?.query?.redirct;
+    $router.push({ path: redirct || '/' });
     ElNotification({
       type: 'success',
       message: `Hi,${getTime()}好`,

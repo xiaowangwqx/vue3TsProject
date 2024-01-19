@@ -8,6 +8,6 @@ export const getToken = () => {
   return localStorage.getItem('TOKEN');
 };
 
-export const removeToken=(key:string)=>{
+export const removeToken = (key: string) => {
   return localStorage.removeItem(key);
-}
+};

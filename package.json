@@ -24,7 +24,9 @@
     "element-plus": "^2.4.3",
     "vue": "^3.3.8",
     "vue-router": "^4.1.6",
-    "pinia": "^2.0.34"
+    "pinia": "^2.0.34",
+    "progress": "^2.0.3",
+    "nprogress": "^0.2.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
