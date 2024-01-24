@@ -48,14 +48,18 @@ let useUserStore = defineStore('User', {
         // 存储用户信息
         this.username = res.data.checkUser.username;
         this.avatar = res.data.checkUser.avatar;
+        return 'ok';
       } else {
+       return Promise.reject('获取用户信息失败');
       }
     },
     // 退出登录
     async userLogout() {
+      // 清除仓库中的数据
       this.token = '';
       this.username = '';
       this.avatar = '';
+      // 移除token
       removeToken('TOKEN');
     },
   },

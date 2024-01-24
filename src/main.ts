@@ -19,7 +19,7 @@ import router from './router/index';
 import pinia from '@/store/index';
 
 // 引入路由鉴权文件
-import '../permission';
+import './permission';
 
 // 获取应用实例对象
 const app = createApp(App);
