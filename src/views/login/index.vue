@@ -59,7 +59,7 @@ let $router = useRouter();
 let $route = useRoute();
 
 // 收集登录 账号密码
-let loginForm = reactive({ username: 'admin', password: '111111' });
+let loginForm = reactive({ username: 'admin', password: 'atguigu123' });
 let loading = ref(false);
 let loginFormRef = ref();
 
