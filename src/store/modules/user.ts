@@ -5,6 +5,7 @@ import { reqLogin, reqUserInfo, reqLogout } from '@/api/user/index';
 import { setToken, getToken, removeToken } from '@/utils/storage';
 // 引入数据类型
 import { UserState } from './types/type';
+import {loginFormData,loginResponseData,userInfoResponseData} from '@/api/user/type'
 // 引入常量路由
 import { constantRoue } from '@/router/routes';
 
@@ -22,8 +23,8 @@ let useUserStore = defineStore('User', {
   // 处理异步
   actions: {
     // 用户登录的方法
-    async userLogin(data: any) {
-      let res: any = await reqLogin(data);
+    async userLogin(data: loginFormData) {
+      let res: loginResponseData = await reqLogin(data);
       console.log(res, '登录');
       //   登录成功 存储token
       if (res.code == 200) {
@@ -41,7 +42,7 @@ let useUserStore = defineStore('User', {
     // 获取用户信息
     async userInfo() {
       // 获取用户信息 存储当前用户信息
-      let res = await reqUserInfo();
+      let res:userInfoResponseData = await reqUserInfo();
       console.log(res, 'userInfo');
       if (res.code == 200) {
         // 存储用户信息
@@ -54,7 +55,7 @@ let useUserStore = defineStore('User', {
     },
     // 退出登录
     async userLogout() {
-      let res = await reqLogout();
+      let res:any = await reqLogout();
       console.log(res, '退出登录');
       if (res.code == 200) {
         // 清除仓库中的数据
@@ -63,8 +64,8 @@ let useUserStore = defineStore('User', {
         this.avatar = '';
         // 移除token
         removeToken('TOKEN');
-        return 'ok'
-      }else{
+        return 'ok';
+      } else {
         return Promise.reject(new Error(res.message));
       }
     },

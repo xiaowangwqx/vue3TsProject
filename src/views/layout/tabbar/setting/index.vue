@@ -57,9 +57,9 @@ const fullScreen = () => {
 };
 
 // 退出登录
-const logout = async() => {
+const logout = async () => {
   console.log('退出登录');
- await userStore.userLogout();
+  await userStore.userLogout();
   $router.push({ path: '/login', query: { redirct: $route.path } });
 };
 </script>
