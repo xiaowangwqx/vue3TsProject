@@ -15,9 +15,9 @@ export const reqLogin = (data: loginFormData) => {
 };
 // 获取用户信息
 export const reqUserInfo = () => {
-return  request.get<any, userInfoResponseData>(API.USERINFO_URL);
+  return request.get<any, userInfoResponseData>(API.USERINFO_URL);
 };
 // 退出登录
 export const reqLogout = () => {
- return request.post<any, any>(API.LOGOUT_UEL);
+  return request.post<any, any>(API.LOGOUT_UEL);
 };

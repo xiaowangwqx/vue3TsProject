@@ -1,8 +1,8 @@
 <template>
   <div>
     <el-config-provider :locale="zhCn">
-    <router-view></router-view>
-  </el-config-provider>
+      <router-view></router-view>
+    </el-config-provider>
   </div>
 </template>
 
