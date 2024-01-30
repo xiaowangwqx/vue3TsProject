@@ -1,6 +1,6 @@
 // 用户相关接口
 import request from '@/utils/request';
-import {loginFormData,loginResponseData,userInfoResponseData} from './type'
+import { loginFormData, loginResponseData, userInfoResponseData } from './type';
 
 // 用户相关接口
 enum API {
@@ -10,9 +10,14 @@ enum API {
 }
 
 // 登录
-export const reqLogin = (data: loginFormData) =>
-  request.post<any, loginResponseData>(API.LOGIN_URL, data);
+export const reqLogin = (data: loginFormData) => {
+  return request.post<any, loginResponseData>(API.LOGIN_URL, data);
+};
 // 获取用户信息
-export const reqUserInfo = () => request.get<any, userInfoResponseData>(API.USERINFO_URL);
+export const reqUserInfo = () => {
+return  request.get<any, userInfoResponseData>(API.USERINFO_URL);
+};
 // 退出登录
-export const reqLogout = () => request.post<any, any>(API.LOGOUT_UEL);
+export const reqLogout = () => {
+ return request.post<any, any>(API.LOGOUT_UEL);
+};

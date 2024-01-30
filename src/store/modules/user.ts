@@ -5,7 +5,11 @@ import { reqLogin, reqUserInfo, reqLogout } from '@/api/user/index';
 import { setToken, getToken, removeToken } from '@/utils/storage';
 // 引入数据类型
 import { UserState } from './types/type';
-import {loginFormData,loginResponseData,userInfoResponseData} from '@/api/user/type'
+import {
+  loginFormData,
+  loginResponseData,
+  userInfoResponseData,
+} from '@/api/user/type';
 // 引入常量路由
 import { constantRoue } from '@/router/routes';
 
@@ -42,7 +46,7 @@ let useUserStore = defineStore('User', {
     // 获取用户信息
     async userInfo() {
       // 获取用户信息 存储当前用户信息
-      let res:userInfoResponseData = await reqUserInfo();
+      let res: userInfoResponseData = await reqUserInfo();
       console.log(res, 'userInfo');
       if (res.code == 200) {
         // 存储用户信息
@@ -55,7 +59,7 @@ let useUserStore = defineStore('User', {
     },
     // 退出登录
     async userLogout() {
-      let res:any = await reqLogout();
+      let res: any = await reqLogout();
       console.log(res, '退出登录');
       if (res.code == 200) {
         // 清除仓库中的数据
