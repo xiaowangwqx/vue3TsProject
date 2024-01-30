@@ -28,8 +28,8 @@
         :background="true"
         layout=" prev, pager, next, jumper,->, sizes,total"
         :total="total"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
+        @size-change="getHasTrademark(1)"
+        @current-change="getHasTrademark"
       />
     </template>
   </el-card>
@@ -49,7 +49,8 @@ let total = ref<number>(0);
 onMounted(() => {
   getHasTrademark();
 });
-const getHasTrademark = async () => {
+const getHasTrademark = async (page=1) => {
+  currentPage.value=page;
   let res: trademarkData = await reqHasTrademark(
     currentPage.value,
     pageSize.value,
@@ -61,14 +62,14 @@ const getHasTrademark = async () => {
   console.log(res, '品牌数据');
 };
 
-const handleSizeChange = (val: number) => {
-  pageSize.value = val;
-  getHasTrademark();
-};
-const handleCurrentChange = (val: number) => {
-  currentPage.value = val;
-  getHasTrademark();
-};
+// const handleSizeChange = () => {
+//   currentPage.value = 1;
+//   getHasTrademark();
+// };
+// const handleCurrentChange = () => {
+//   // currentPage.value = val;
+//   getHasTrademark();
+// };
 </script>
 
 <style scoped></style>
