@@ -5,6 +5,7 @@
 # 格式化代码
 
 代码格式化:`pnpm run format/npm run fotmat`
+（建议每次提交代码前，先运行该代码）
 
 # commit 提交规范
 

@@ -1,6 +1,10 @@
 // 用户相关接口
 import request from '@/utils/request';
-import { loginFormData, loginResponseData, userInfoResponseData } from './type';
+import type {
+  loginFormData,
+  loginResponseData,
+  userInfoResponseData,
+} from './type';
 
 // 用户相关接口
 enum API {

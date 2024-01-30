@@ -38,8 +38,9 @@
 <script setup lang="ts">
 import { reactive, ref, onMounted } from 'vue';
 import { reqHasTrademark } from '@/api/product/tradeMark/index';
+import type { Records, trademarkData } from '@/api/product/tradeMark/type';
 
-let tableData = ref<any>([]);
+let tableData = ref<Records>([]);
 let pageSizes = reactive<number[]>([3, 6, 9, 12, 15]);
 let currentPage = ref<number>(1);
 let pageSize = ref<number>(3);
@@ -49,12 +50,14 @@ onMounted(() => {
   getHasTrademark();
 });
 const getHasTrademark = async () => {
-  let res = await reqHasTrademark(currentPage.value, pageSize.value);
+  let res: trademarkData = await reqHasTrademark(
+    currentPage.value,
+    pageSize.value,
+  );
   if (res.code == 200) {
-    tableData = res.data.records;
+    tableData.value = res.data.records;
     total.value = res.data.total;
   }
-
   console.log(res, '品牌数据');
 };
 
