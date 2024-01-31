@@ -11,8 +11,8 @@ export interface trademark {
   id?: number;
   tmName: string;
   logoUrl: string;
-  createTime: string;
-  updateTime: string;
+  createTime?: string;
+  updateTime?: string;
 }
 
 // 包含全部品牌的数据类型
@@ -28,4 +28,9 @@ export interface trademarkData extends responseData {
     searchCount: boolean;
     pages: number;
   };
+}
+
+// 新增或编辑品牌接口返回数据类型
+export interface addOrUpdateTrademarkResponseData extends responseData {
+  data: any;
 }
