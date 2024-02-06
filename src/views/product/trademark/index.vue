@@ -183,7 +183,9 @@ const deleteTradeMark = async (row: any) => {
       type: 'success',
       message: '删除品牌成功',
     });
-    getHasTrademark(tableData.value.length > 1 ? currentPage.value : currentPage.value - 1);
+    getHasTrademark(
+      tableData.value.length > 1 ? currentPage.value : currentPage.value - 1,
+    );
   } else {
     ElMessage({
       type: 'error',
